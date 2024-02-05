@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="js/jspdf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
+    <script src="js/app.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="parent">
+        <div class="card">
+            <div class="card-header">
+                <div class="row justify-content-md-center">
+                    <div class="col-md-auto">
+                        <nav class="nav">
+                            <div class="container-fluid">
+                              <a class="navbar-brand" href="#">
+                                <img src="img/logo.png" width="50px" height="50px" class="d-inline-block">
+                              </a>
+                              <a class="navbar-brand" href="#">
+                                <H5 class="d-inline-block align-text-top"><b>TARJETA DE AUTO - EVALUACIÓN DE FATIGA</b></H5>
+                              </a>
+                            </div>
+                          </nav>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="card-body">
+                <div class="container mt-4">
+                    <div class="row justify-content-md-center">
+                        <div class="col-md-auto">
+                           <div class="ch5"> <h5>Llenar el Formulario y generar PDF</h5></div>
+                            <form id="form">
+                                <div class="row mb-3">
+                                    <div class="col-md-8">
+                                    <label for="nombres" class="form-label"><b>APELLIDOS Y NOMBRES:</b></label>
+                                    <input type="nombres" class="form-control" id="nombres">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="dni" class="form-label"><b>DNI</b></label>
+                                        <input type="number" class="form-control" id="dni">
+                                    </div>
+                                </div>
+            
+                                <div class="mb-3">
+                                   
+                                        <label class="form-label"><b>1. CANTIDAD DE SUEÑO:</b> ¿Cuánto ha dormido usted en las ultimas 24 horas?</label>
+                                      <div>
+                                          <div class="form-check form-check-inline">
+                                              <input class="form-check-input" type="radio" name="pregunta01" id="uno_a" value=1>
+                                              <label class="form-check-label" for="inlineRadio1">Más de 7 horas</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                              <input class="form-check-input" type="radio" name="pregunta01" id="uno_b" value=0>
+                                              <label class="form-check-label" for="inlineRadio2">Menos de 7 horas</label>
+                                            </div>
+                                      </div>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label"><b>2. CALIDAD DE SUEÑO:</b> ¿Cómo calificaría la calidad de ese sueño? </label>
+                                  <div>
+                                      <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="pregunta02" id="dos_a" value=1>
+                                          <label class="form-check-label" for="inlineRadio1">Bueno</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="pregunta02" id="dos_b" value=0>
+                                          <label class="form-check-label" for="inlineRadio2">Pobre</label>
+                                        </div>
+                                  </div>
+                                  </div>
+                                  <div class="col-12">
+                                    <label class="form-label"><b>3. ALIMENTACIÓN:</b> ¿Ha ingerido algún alimento pesado que pueda causarle sueño? </label>
+                                  <div>
+                                      <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="pregunta03" id="tres_a" value=1>
+                                          <label class="form-check-label" for="inlineRadio1">No</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="pregunta03" id="tres_b" value=0>
+                                          <label class="form-check-label" for="inlineRadio2">Si</label>
+                                        </div>
+                                  </div>
+                                  </div>
+                        
+                                  <div class="col-12">
+                                    <div class="col-12">
+                                    <label class="form-label"><b>4. MEDICAMENTOS/ SUSTANCIAS/ESTRÉS/ENFERMEDAD:</b> <br>
+                                        ¿Está tomando medicamentos que puedan afectar su concentración o causarle sueño? <br>
+                                        ¿Está con molestias por alguna enfermedad? <br>
+                                        ¿Está distraído por temas laborales y/o familiares? 
+                                        
+                                    </label>
+                                    </div>
+                                  <div>
+                                      <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="pregunta04" id="cuatro_a" value=1>
+                                          <label class="form-check-label" for="inlineRadio1">No</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="pregunta04" id="cuatro_b" value=0>
+                                          <label class="form-check-label" for="inlineRadio2">Si</label>
+                                        </div>
+                                  </div>
+                                  </div>
+                        
+                                  <div class="col-12">
+                                    <label class="form-label"><b>5. APTITUD PARA EL TRABAJO:</b> ¿Se siente seguro de poder completar o continuar su jornada de trabajo normal el día de hoy?  </label>
+                                  <div>
+                                      <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="pregunta05" id="cinco_a" value=1>
+                                          <label class="form-check-label" for="inlineRadio1">Alerta y despierto</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="pregunta05" id="cinco_b" value=0>
+                                          <label class="form-check-label" for="inlineRadio2">Dificultad para estar alerta y despierto </label>
+                                        </div>
+                                  </div>
+                                  </div>
+            
+                                <div class="ch4">
+                                    <h4 class="align-items:center"><span class="d-block pb-3">Firma digital aquí</span></h4>
+                                </div>
+                                <div class="signature mb-2" style="width: 100%; height: 200px;">
+                                    <canvas id="signature-canvas"
+                                        style="border: 1px dashed skyblue; width: 100%; height: 200px;"></canvas>
+                                </div>
+                                <div class="w-33">
+                                    <button type="submit" class="btn btn-primary mb-4">Generar PDF</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</html>
